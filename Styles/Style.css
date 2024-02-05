@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*, *::before, *::after{
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Poppins";
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #191919;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calculator_section{
+    width: 290px;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow:  6px 6px 10px #111111,
+    -2px -2px 8px #353535;
+    background-color: #191919;
+}
+.display-calc{
+    width: 100%;
+    padding: 10px 5px;
+    overflow: hidden;
+    margin-block-end: 10px;
+}
+.display-calc > input{
+    color: #fff;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    display: block;
+    background-color:transparent;
+    border: none;
+    outline: none;
+    margin: 0 auto;
+    width: 99%;
+    padding-inline-start: 7px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5),  -1px -1px 1px rgba(256, 256, 256, 0.2);
+    border-radius: 7px;
+}
+.btn-calc{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    width: 100%;
+}
+.row-calc{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    height: 60px;
+}
+#backButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#backButton > svg{
+    width: 25px;
+    height: 25px;
+    aspect-ratio: 2/1;
+    pointer-events: none;
+    user-select: none;
+
+}
+.row-calc > input, #backButton{
+    flex: 1;
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5), -1px -1px 1px rgba(256, 256, 256, 0.2);
+    border-radius: 8px;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+}
+.row-calc > input[value="Clear"]{
+    font-size: 17px !important;
+    background-color: #eb2a46 !important;
+}
+.row-calc > input[value="="]{
+    background-color: #a160fb !important;
+    flex: 2;
+}
