@@ -5,7 +5,7 @@
 -  **🆓Free to the public**
  
 - - - - - - - - - - - - - - - - - - -  
-🔰 Attributes : 
+🛠️ Attributes : 
 <br>
 <ul>
   <li>beautiful design</li>
@@ -13,10 +13,16 @@
   <li>Responsive</li>
   <li>Light code and fast execution</li>
 </ul>
-- - - - - - - - - - - - - - - - - - -  
 <br>
-🖼️ Picture <br><br>
-<img src="Pic/Pictue-calc-(2).png">
+⚒  Language & Tool :
+<ul>
+  <li>Html</li>
+  <li>Css</li>
+  <li>Javascript</li>
+</ul>
+▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪  ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪<br>
+🖼️ Picture <br>
+<img src="Pic/Pictue-calc-(2).png"><br>
 - - - - - - - - - - - - - - - - - - - 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
