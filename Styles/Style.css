@@ -69,7 +69,6 @@ body{
     aspect-ratio: 2/1;
     pointer-events: none;
     user-select: none;
-
 }
 .row-calc > input, #backButton{
     flex: 1;
@@ -77,12 +76,16 @@ body{
     outline: none;
     border: none;
     background-color: transparent;
-
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5), -1px -1px 1px rgba(256, 256, 256, 0.2);
     border-radius: 8px;
     font-size: 22px;
     color: #fff;
     cursor: pointer;
+}
+.row-calc > input:active{
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5), inset -1px -1px 1px rgba(256, 256, 256, 0.2);
+    font-size: 19px;
+    color: #E4E9D2;
 }
 .row-calc > input[value="Clear"]{
     font-size: 17px !important;
@@ -91,4 +94,19 @@ body{
 .row-calc > input[value="="]{
     background-color: #a160fb !important;
     flex: 2;
+}
+.setAnimation{
+    animation: keyAnimation 0.14s ease;
+}
+@media only screen and (max-width: 500px){
+    input, button{
+        cursor: pointer;
+    }
+}
+@keyframes keyAnimation {
+    80%{
+        box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5), inset -1px -1px 1px rgba(256, 256, 256, 0.2);
+        font-size: 19px;
+        color: #E4E9D2;
+    }
 }

@@ -8,14 +8,7 @@ let backBtn = $.querySelector("#backButton");
 let result = 0;
 
 // Functions [+]
-function FocusOnButtonHandlerMouse(event){
-    event.target.style.boxShadow = "inset 1px 1px 1px rgba(0, 0, 0, 0.5), inset -1px -1px 1px rgba(256, 256, 256, 0.2)";
-    BlurOnButtonHandlerMouse(event);
-}
-function BlurOnButtonHandlerMouse(event){
-    setTimeout(function (){
-        event.target.style.boxShadow = "1px 1px 1px rgba(0, 0, 0, 0.5), -1px -1px 1px rgba(256, 256, 256, 0.2)";
-    },25)
+function mouseFocusOnButton(event){
     if(event.target.dataset.name !== undefined){
         ResultGenerator(event.target.dataset.name);
     }
@@ -23,29 +16,21 @@ function BlurOnButtonHandlerMouse(event){
         clearDisplayCalc();
     }
 }
-function FocusOnButtonHandlerKeyboard(event){
+function keyboardFocusOnButton(event){
     calculatorButtons.forEach(function (button) {
         if(event.key === button.dataset.name){
-            button.style.boxShadow = "inset 1px 1px 1px rgba(0, 0, 0, 0.5), inset -1px -1px 1px rgba(256, 256, 256, 0.2)";
-            BlurOnButtonHandlerKeyboard(button);
+            setAnimation(button);
+
+            ResultGenerator(button.dataset.name);
         }
     });
-}
-function  BlurOnButtonHandlerKeyboard(event){
-    setTimeout(function (){
-        event.style.boxShadow = "1px 1px 1px rgba(0, 0, 0, 0.5), -1px -1px 1px rgba(256, 256, 256, 0.2)";
-    },25)
+    if(event.key === "Backspace"){
+        setAnimation(backBtn)
+        UndoReturnHandler();
+    }
     if(event.key === "Enter"){
         ShowResult();
     }
-    if(event.key === "Backspace"){
-        UndoReturnHandler();
-        backBtn.style.boxShadow = 'inset 1px 1px 1px rgba(0, 0, 0, 0.5), inset -1px -1px 1px rgba(256, 256, 256, 0.2)';
-        setTimeout(function(){
-            backBtn.style.boxShadow = "1px 1px 1px rgba(0, 0, 0, 0.5), -1px -1px 1px rgba(256, 256, 256, 0.2)";
-        },25)
-    }
-    ResultGenerator(event.dataset.name);
 }
 function ResultGenerator(dataset){
     if(displayCalc.value.length <= 10){
@@ -57,13 +42,7 @@ function clearDisplayCalc(){
     result = 0;
 }
 function UndoReturnHandler(){
-    let valueX = '';
-    for (let i = 0; i < displayCalc.value.length ; i++){
-        if(i < displayCalc.value.length - 1){
-            valueX += displayCalc.value[i]
-        }
-    }
-    displayCalc.value = valueX;
+    displayCalc.value = displayCalc.value.slice(0, (displayCalc.value.length - 1));
 }
 function ShowResult(){
     result = Number(eval(displayCalc.value));
@@ -78,10 +57,22 @@ function ShowResult(){
         alert("Your input is out of range !")
     }
 }
+function setAnimation(element){
+    element.classList.add("setAnimation");
+    element.addEventListener("animationend", function(){
+        getAnimation(element);
+    })
+}
+function getAnimation(element){
+    element.classList.remove("setAnimation");
+}
 
 // Events [+]
 calculatorButtons.forEach(function (button) {
-    button.addEventListener("click", FocusOnButtonHandlerMouse)
+    button.addEventListener("click", mouseFocusOnButton)
 });
-$.body.addEventListener("keydown", FocusOnButtonHandlerKeyboard)
-backBtn.addEventListener("click", UndoReturnHandler)
+backBtn.addEventListener("click", function (){
+    setAnimation(backBtn);
+    UndoReturnHandler()
+})
+$.body.addEventListener("keydown", keyboardFocusOnButton)
