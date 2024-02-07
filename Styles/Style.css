@@ -42,6 +42,7 @@ body{
     width: 99%;
     padding-inline-start: 7px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5),  -1px -1px 1px rgba(256, 256, 256, 0.2);
+    transition: all 0.2s ease;
     border-radius: 7px;
 }
 .btn-calc{

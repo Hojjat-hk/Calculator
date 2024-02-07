@@ -7,6 +7,9 @@ let calculatorButtons = $.querySelectorAll(".calculator_button");
 let backBtn = $.querySelector("#backButton");
 let result = 0;
 
+// Constants [+]
+const operators = ["+", "-", "*", "/", "%"];
+
 // Functions [+]
 function mouseFocusOnButton(event){
     if(event.target.dataset.name !== undefined){
@@ -33,12 +36,38 @@ function keyboardFocusOnButton(event){
     }
 }
 function ResultGenerator(dataset){
-    if(displayCalc.value.length <= 10){
+    if(displayCalc.value.length > 10)
+        return;
+
+    const lastCharacter = displayCalc.value[displayCalc.value.length - 1]
+    const isDatasetAnOperator =  operators.includes(dataset);
+
+    if (operators.includes(lastCharacter)) {
+        if (isDatasetAnOperator || dataset === ".")
+            return;
+    }
+
+    if (dataset === "." && lastCharacter === ".")
+        return;
+
+    if(lastCharacter === "." && isDatasetAnOperator)
+        return;
+
+    if (lastCharacter === "." && !operators.includes(displayCalc.value[displayCalc.value.length - 2])) {
+        displayCalc.value += dataset;
+        return;
+    }
+
+    if (displayCalc.value === "0") {
+        if (dataset !== 0) {
+            displayCalc.value = dataset;
+        }
+    }else{
         displayCalc.value += dataset;
     }
 }
 function clearDisplayCalc(){
-    displayCalc.value = null;
+    displayCalc.value = "0";
     result = 0;
 }
 function UndoReturnHandler(){
@@ -54,7 +83,12 @@ function ShowResult(){
         displayCalc.value = x;
         result = 0;
     }else{
-        alert("Your input is out of range !")
+        displayCalc.style.cssText = "box-shadow: 1px 1px 1px rgba(91, 1, 0, 0.7),  -1px -1px 1px rgba(151, 46, 47, 0.6)";
+        setTimeout(function () {
+            displayCalc.style.cssText = "1px 1px 1px rgba(0, 0, 0, 0.5),  -1px -1px 1px rgba(256, 256, 256, 0.2)";
+        },700)
+        result = 0;
+
     }
 }
 function setAnimation(element){
