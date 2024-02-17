@@ -1,4 +1,7 @@
+/* Poppins font CDN  */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* For all Element*/
 *, *::before, *::after{
     box-sizing: border-box;
     text-decoration: none;
@@ -6,6 +9,8 @@
     padding: 0;
     margin: 0;
 }
+
+/* StyleSheet */
 body{
     background-color: #191919;
     height: 100vh;
@@ -83,11 +88,6 @@ body{
     color: #fff;
     cursor: pointer;
 }
-.row-calc > input:active{
-    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5), inset -1px -1px 1px rgba(256, 256, 256, 0.2);
-    font-size: 19px;
-    color: #E4E9D2;
-}
 .row-calc > input[value="Clear"]{
     font-size: 17px !important;
     background-color: #eb2a46 !important;
@@ -96,18 +96,29 @@ body{
     background-color: #a160fb !important;
     flex: 2;
 }
+
+/* Key Down Animation */
+.row-calc > input:active{
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5), inset -1px -1px 1px rgba(256, 256, 256, 0.2);
+    font-size: 19px;
+    color: #E4E9D2;
+}
+
 .setAnimation{
     animation: keyAnimation 0.14s ease;
 }
-@media only screen and (max-width: 500px){
-    input, button{
-        cursor: pointer;
-    }
-}
+
 @keyframes keyAnimation {
     80%{
         box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5), inset -1px -1px 1px rgba(256, 256, 256, 0.2);
         font-size: 19px;
         color: #E4E9D2;
+    }
+}
+
+/* Responsive website config */
+@media only screen and (max-width: 500px){
+    input, button{
+        cursor: pointer;
     }
 }
